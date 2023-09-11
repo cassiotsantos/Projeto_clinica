@@ -25,5 +25,4 @@ public class ClinicaResponse {
     private String descricao;
     private Endereco endereco;
     private Contato contato;
-    private Set<Consulta> consultas;
 }

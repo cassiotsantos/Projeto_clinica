@@ -42,7 +42,5 @@ public class Clinica {
                 foreignKey =
                 @ForeignKey(name = "fk_contato_clinica"))
     private Contato contato;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_cliente")
-    private Set<Consulta> consultas;
+
 }
