@@ -17,6 +17,7 @@ public class Dentista {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    private String cro;
     private String nome;
     private Instant dataNascimento;
     @Column(length = 80)

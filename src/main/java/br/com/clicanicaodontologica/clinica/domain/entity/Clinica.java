@@ -3,14 +3,11 @@ package br.com.clicanicaodontologica.clinica.domain.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
-
-
 @Getter
 @Setter
 @Entity
@@ -26,10 +23,9 @@ public class Clinica {
             inverseJoinColumns = @JoinColumn(name = "id_clinica"),
             foreignKey =
             @ForeignKey(name = "fk_clinica_dentista"))
-    private Set<Clinica> clinicaDentista;
+    private Set<Dentista> clinicaDentista;
     private String name;
     @Column(length = 20)
-    @CNPJ
     private String cnpj;
     private String razaoSocial;
     private Instant criadoEm;
