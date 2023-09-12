@@ -5,6 +5,7 @@ import br.com.clicanicaodontologica.clinica.domain.entity.Contato;
 import br.com.clicanicaodontologica.clinica.domain.entity.Dentista;
 import br.com.clicanicaodontologica.clinica.domain.entity.Endereco;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -16,10 +17,10 @@ import java.util.UUID;
 @Getter
 @Setter
 public class ClinicaResponse {
-    private Set<Dentista> clinicaDentista;
     private String name;
     @CNPJ
     private String cnpj;
+    @Size(min = 5, message = "O campo deve ter pelo menos 5 caracteres.")
     private String razaoSocial;
     private Instant criadoEm;
     private String descricao;

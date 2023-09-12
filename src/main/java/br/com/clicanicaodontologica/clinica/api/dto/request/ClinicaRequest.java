@@ -10,12 +10,11 @@ import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.time.Instant;
 import java.util.Set;
-import java.util.UUID;
+
 
 @Setter
 @Getter
 public class ClinicaRequest {
-    private Set<Dentista> clinicaDentista;
     private String name;
     @CNPJ
     private String cnpj;

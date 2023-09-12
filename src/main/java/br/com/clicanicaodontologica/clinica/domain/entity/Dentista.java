@@ -32,7 +32,12 @@ public class Dentista {
             @ForeignKey(name = "fk_contato_dentista"))
     private Contato contato;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_dentista")
-    private Set<Consulta> consultas;
+    @JoinTable(name = "dentistas_clinicas",
+         joinColumns =
+         @JoinColumn(name = "id_dentista"),
+         inverseJoinColumns =
+         @JoinColumn(name="id_clinica")
+    )
+    private Set<Clinica> dentistasClinicas;
 
 }
