@@ -34,4 +34,13 @@ public class Paciente {
             foreignKey =
             @ForeignKey(name = "fk_contato_paciente"))
     private Contato contato;
+
+    @PrePersist
+    public void naCriacao() {
+        this.criadoEm = Instant.now();
+    }
+    @PreUpdate
+    public void naAtualizacao() {
+        this.atualizadoEm = Instant.now();
+    }
 }

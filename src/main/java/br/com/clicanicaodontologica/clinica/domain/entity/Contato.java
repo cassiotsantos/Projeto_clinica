@@ -22,4 +22,9 @@ public class Contato {
     private String telefone;
     private Instant criadoEm;
     private Instant atualizadoEm;
+
+    @PreUpdate
+    public void naAtualizacao() {
+        this.atualizadoEm = Instant.now();
+    }
 }

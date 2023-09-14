@@ -19,9 +19,7 @@ public class ClinicaRequest {
     @CNPJ
     private String cnpj;
     private String razaoSocial;
-    private Instant criadoEm;
     private String descricao;
     private EnderecoRequest endereco;
     private ContatoRequest contato;
-    private Set<Consulta> consultas;
 }

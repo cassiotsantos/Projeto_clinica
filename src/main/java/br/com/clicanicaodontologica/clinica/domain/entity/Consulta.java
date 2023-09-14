@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
@@ -36,11 +37,20 @@ public class Consulta {
             @ForeignKey(name = "fk_consulta_dentista")
     )
     private Dentista dentista;
-    private Instant dataConsulta;
+    private LocalDate dataConsulta;
     private Instant criadoEm;
     private Instant atualizadoEm;
     private String descricao;
     private Boolean cancelada;
     @Column(length = 80)
     private String motivoCancelamento;
+
+    @PrePersist
+    public void naCriacao() {
+        this.criadoEm = Instant.now();
+    }
+    @PreUpdate
+    public void naAtualizacao() {
+        this.atualizadoEm = Instant.now();
+    }
 }

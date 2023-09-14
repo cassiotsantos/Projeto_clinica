@@ -27,6 +27,7 @@ public class Clinica {
     private String cnpj;
     private String razaoSocial;
     private Instant criadoEm;
+    private Instant atualizadoEm;
     private String descricao;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_endereco",
@@ -39,7 +40,15 @@ public class Clinica {
                 referencedColumnName = "id",
                 foreignKey =
                 @ForeignKey(name = "fk_clinica_contato"))
-
     private Contato contato;
+
+    @PrePersist
+    public void naCriacao() {
+        this.criadoEm = Instant.now();
+    }
+    @PreUpdate
+    public void naAtualizacao() {
+        this.atualizadoEm = Instant.now();
+    }
 
 }

@@ -40,4 +40,13 @@ public class Dentista {
     )
     private Set<Clinica> dentistasClinicas;
 
+    @PrePersist
+    public void naCriacao() {
+        this.criadoEm = Instant.now();
+    }
+    @PreUpdate
+    public void naAtualizacao() {
+        this.atualizadoEm = Instant.now();
+    }
+
 }

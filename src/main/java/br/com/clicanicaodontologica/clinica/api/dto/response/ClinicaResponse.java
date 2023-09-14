@@ -17,13 +17,15 @@ import java.util.UUID;
 @Getter
 @Setter
 public class ClinicaResponse {
+    private UUID id;
     private String name;
     @CNPJ
     private String cnpj;
     @Size(min = 5, message = "O campo deve ter pelo menos 5 caracteres.")
     private String razaoSocial;
     private Instant criadoEm;
+    private Instant atualizadoEm;
     private String descricao;
-    private Endereco endereco;
-    private Contato contato;
+    private EnderecoResponse endereco;
+    private ContatoResponse contato;
 }
