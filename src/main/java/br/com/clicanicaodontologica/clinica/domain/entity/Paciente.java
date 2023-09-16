@@ -25,6 +25,7 @@ public class Paciente {
             foreignKey =
             @ForeignKey(name = "fk_endereco_paciente"))
     private Endereco endereco;
+    @Column(updatable = false)
     private Instant criadoEm;
     private Instant atualizadoEm;
     private SexoEnum sexoEnum;

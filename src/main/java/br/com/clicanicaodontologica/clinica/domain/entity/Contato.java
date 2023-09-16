@@ -20,6 +20,7 @@ public class Contato {
     private String email;
     @Column(length = 15)
     private String telefone;
+    @Column(updatable = false)
     private Instant criadoEm;
     private Instant atualizadoEm;
 

@@ -26,6 +26,7 @@ public class Clinica {
     @Column(length = 20)
     private String cnpj;
     private String razaoSocial;
+    @Column(updatable = false)
     private Instant criadoEm;
     private Instant atualizadoEm;
     private String descricao;

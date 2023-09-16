@@ -10,12 +10,14 @@ import br.com.clicanicaodontologica.clinica.domain.entity.Clinica;
 import br.com.clicanicaodontologica.clinica.domain.entity.Contato;
 import br.com.clicanicaodontologica.clinica.domain.entity.Endereco;
 import br.com.clicanicaodontologica.clinica.domain.service.ClinicaService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,14 +25,27 @@ import java.util.UUID;
 @RequestMapping("v1/clinicas")
 public class ClinicaController {
 private final ClinicaService clinicaService;
+private final ObjectMapper objectMapper;
 
     @Autowired
-    public ClinicaController(ClinicaService clinicaService) {
+    public ClinicaController(ClinicaService clinicaService, ObjectMapper objectMapper) {
         this.clinicaService = clinicaService;
+        this.objectMapper = objectMapper;
     }
     @PostMapping
-    ResponseEntity<?> criarClinica(@RequestBody @Valid ClinicaRequest request) {
+    ResponseEntity<?> criarClinica(@RequestBody @Valid List<ClinicaRequest> request) {
 
+        //List<Clinica> clinicas = objectMapper.convertValue(request, Clinica.class);
+        //List<Clinica> clinicasList = clinicaService.criarClinica(clinicas);
+
+        List<Clinica> listaClinicas = new ArrayList<>();
+
+        for (ClinicaRequest requestList : request) {
+            Clinica clinica = objectMapper.convertValue(requestList, Clinica.class);
+            listaClinicas.add(clinica);
+        }
+
+        /*
         Clinica clinica =new Clinica();
         clinica.setCnpj(request.getCnpj());
         clinica.setName(request.getName());
@@ -52,10 +67,10 @@ private final ClinicaService clinicaService;
         clinica.setEndereco(endereco);
 
         List<Clinica> listaClinica = new ArrayList<Clinica>( );
-        listaClinica.add(clinica);
-        List<Clinica> clinicaCriada = clinicaService.criarClinica(listaClinica);
+        listaClinica.add(clinicas);
+        List<Clinica> clinicaCriada = clinicaService.criarClinica(listaClinica);*/
 
-        return ResponseEntity.ok(clinicaCriada);
+        return ResponseEntity.ok(clinicaService.criarClinica(listaClinicas));
     }
 
     @GetMapping("{id}")
@@ -121,10 +136,14 @@ private final ClinicaService clinicaService;
         clinicaResponse.setRazaoSocial(clinica.getRazaoSocial());
         clinicaResponse.setDescricao(clinica.getDescricao());
         clinicaResponse.setId(clinica.getId());
+        clinicaResponse.setAtualizadoEm(clinica.getAtualizadoEm());
+        clinicaResponse.setCriadoEm(clinica.getCriadoEm());
 
         ContatoResponse contatoResponse = new ContatoResponse();
         contatoResponse.setEmail(clinica.getContato().getEmail());
         contatoResponse.setTelefone(clinica.getContato().getTelefone());
+        contatoResponse.setAtualizadoEm(clinica.getAtualizadoEm());
+        contatoResponse.setCriadoEm(clinica.getCriadoEm());
 
         EnderecoResponse enderecoResponse = new EnderecoResponse();
         enderecoResponse.setLogradouro(clinica.getEndereco().getLogradouro());
@@ -132,6 +151,8 @@ private final ClinicaService clinicaService;
         enderecoResponse.setCidade(clinica.getEndereco().getCidade());
         enderecoResponse.setEstado(clinica.getEndereco().getEstado());
         enderecoResponse.setCep(clinica.getEndereco().getCep());
+        enderecoResponse.setAtualizadoEm(clinica.getAtualizadoEm());
+        enderecoResponse.setCriadoEm(clinica.getCriadoEm());
 
         clinicaResponse.setContato(contatoResponse);
         clinicaResponse.setEndereco(enderecoResponse);

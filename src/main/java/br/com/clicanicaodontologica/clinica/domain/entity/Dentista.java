@@ -22,6 +22,7 @@ public class Dentista {
     private Instant dataNascimento;
     @Column(length = 80)
     private EspecialidadeEnum especialidadeEnum;
+    @Column(updatable = false)
     private Instant criadoEm;
     private Instant atualizadoEm;
     private SexoEnum sexoEnum;

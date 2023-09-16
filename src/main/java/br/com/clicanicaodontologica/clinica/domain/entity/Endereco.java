@@ -20,6 +20,7 @@ public class Endereco {
     private String logradouro;
     @Column(length = 100)
     private String bairro;
+    @Column(updatable = false)
     private Instant criadoEm;
     private Instant atualizadoEm;
     @Column(length = 100)
@@ -28,4 +29,6 @@ public class Endereco {
     private String estado;
     @Column(length = 10)
     private String cep;
+
+     public void naAtualizacao() {this.atualizadoEm = Instant.now();}
 }

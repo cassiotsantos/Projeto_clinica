@@ -38,6 +38,7 @@ public class Consulta {
     )
     private Dentista dentista;
     private LocalDate dataConsulta;
+    @Column(updatable = false)
     private Instant criadoEm;
     private Instant atualizadoEm;
     private String descricao;
