@@ -20,10 +20,10 @@ public class PacienteRequest {
     @NotNull
     private LocalDate dataNascimento;
     @NotNull
-    private Endereco endereco;
+    private EnderecoRequest endereco;
     @NotNull
     private SexoEnum sexoEnum;
     @NotNull
-    private Contato contato;
+    private ContatoRequest contato;
 
 }

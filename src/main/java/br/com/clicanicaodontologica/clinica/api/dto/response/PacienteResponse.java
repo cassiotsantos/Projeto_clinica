@@ -20,10 +20,9 @@ public class PacienteResponse {
     private UUID id;
     private String nome;
     private LocalDate dataNascimento;
-    private Endereco endereco;
+    private EnderecoResponse endereco;
     private LocalDateTime criadoEm;
     private LocalDateTime atualizadoEm;
     private SexoEnum sexoEnum;
-    private Contato contato;
-    private Set<Consulta> consultas;
+    private ContatoResponse contato;
 }
