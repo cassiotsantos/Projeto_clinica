@@ -15,14 +15,14 @@ public class Clinica {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    //@ManyToMany
-    //@JoinTable(
-    //        name = "clinicaDentistas",
-    //        joinColumns = @JoinColumn(name = "id_dentista"),
-    //        inverseJoinColumns = @JoinColumn(name = "id_clinica"),
-    //        foreignKey =
-    //        @ForeignKey(name = "fk_clinica_dentista"))
-   // private Set<Dentista> clinicaDentista;
+    /*@ManyToMany
+    @JoinTable(
+            name = "clinicaDentistas",
+          joinColumns = @JoinColumn(name = "id_dentista"),
+           inverseJoinColumns = @JoinColumn(name = "id_clinica"),
+           foreignKey =
+           @ForeignKey(name = "fk_clinica_dentista"))
+   private Set<Dentista> clinicaDentista;*/
     private String name;
     @Column(length = 20)
     private String cnpj;
