@@ -6,11 +6,15 @@ import br.com.clicanicaodontologica.clinica.domain.entity.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Setter
+@Getter
 public class ConsultaRequest {
     @NotNull
     private Paciente paciente;

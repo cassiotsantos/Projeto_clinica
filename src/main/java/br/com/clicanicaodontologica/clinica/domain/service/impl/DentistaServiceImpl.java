@@ -36,7 +36,7 @@ public class DentistaServiceImpl implements DentistaService {
     }
 
     @Override
-    public Dentista atualizarDentista(Dentista dentista) {
+    public Dentista atualizarDentista(UUID id, Dentista dentista) {
 
         return dentistaRepository.save(dentista);
     }

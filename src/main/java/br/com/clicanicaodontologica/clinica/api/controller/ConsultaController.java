@@ -71,13 +71,13 @@ public class ConsultaController {
     ResponseEntity<ConsultaResponse> atualizarConsulta (@PathVariable UUID id, @RequestBody @Valid ConsultaRequest request) {
 
         Consulta consulta = consultaService.buscarConsultaPorId(id);
-        consulta.setPaciente(consulta.getPaciente());
-        consulta.setDentista(consulta.getDentista());
-        consulta.setClinica(consulta.getClinica());
-        consulta.setDataConsulta(consulta.getDataConsulta());
-        consulta.setDescricao(consulta.getDescricao());
-        consulta.setCancelada(consulta.getCancelada());
-        consulta.setMotivoCancelamento(consulta.getMotivoCancelamento());
+        consulta.setPaciente(request.getPaciente());
+        consulta.setDentista(request.getDentista());
+        consulta.setClinica(request.getClinica());
+        consulta.setDataConsulta(request.getDataConsulta());
+        consulta.setDescricao(request.getDescricao());
+        consulta.setCancelada(request.getCancelada());
+        consulta.setMotivoCancelamento(request.getMotivoCancelamento());
 
         Consulta atualizadaConsulta = consultaService.atualizarConsulta(id, consulta);
         ConsultaResponse responseConsulta = consultaResponseByConsulta(atualizadaConsulta);
