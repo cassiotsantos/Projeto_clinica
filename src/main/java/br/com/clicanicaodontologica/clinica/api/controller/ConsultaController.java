@@ -10,6 +10,7 @@ import br.com.clicanicaodontologica.clinica.domain.entity.Clinica;
 import br.com.clicanicaodontologica.clinica.domain.entity.Consulta;
 import br.com.clicanicaodontologica.clinica.domain.service.ConsultaService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/consultas")
+@Tag(name = "Consultas")
 public class ConsultaController {
 
     private final ConsultaService consultaService;

@@ -16,6 +16,7 @@ import br.com.clicanicaodontologica.clinica.domain.entity.Endereco;
 import br.com.clicanicaodontologica.clinica.domain.entity.Paciente;
 import br.com.clicanicaodontologica.clinica.domain.service.PacienteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/pacientes")
+@Tag(name = "Pacientes")
 public class PacienteController {
 
     private final PacienteService pacienteService;
@@ -142,8 +144,4 @@ public class PacienteController {
 
         return pacienteResponse;
     }
-
-
-
-
 }

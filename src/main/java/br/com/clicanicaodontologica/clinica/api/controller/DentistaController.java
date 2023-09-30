@@ -6,6 +6,7 @@ import br.com.clicanicaodontologica.clinica.api.dto.response.ConsultaResponse;
 import br.com.clicanicaodontologica.clinica.api.dto.response.ContatoResponse;
 import br.com.clicanicaodontologica.clinica.api.dto.response.DentistaResponse;
 import br.com.clicanicaodontologica.clinica.domain.entity.Contato;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.log4j.Log4j;
 
 
@@ -28,6 +29,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/dentistas")
+@Tag(name = "Dentistas")
 public class DentistaController {
 
     private final DentistaService dentistaService;
