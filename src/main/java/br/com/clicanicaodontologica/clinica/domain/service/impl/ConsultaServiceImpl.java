@@ -37,7 +37,7 @@ public class ConsultaServiceImpl implements ConsultaService {
     }
 
     @Override
-    public Consulta atualizarConsulta(Consulta consulta) {
+    public Consulta atualizarConsulta(UUID id, Consulta consulta) {
 
         return consultaRepository.save(consulta);
     }

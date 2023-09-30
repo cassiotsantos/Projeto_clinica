@@ -14,8 +14,10 @@ import java.util.UUID;
 @Getter
 @Setter
 public class ConsultaResponse {
-    private Paciente paciente;
-    private Clinica clinica;
+    private UUID id;
+    private UUID paciente;
+    private UUID clinica;
+    private UUID dentista;
     private LocalDate dataConsulta;
     private LocalDateTime criadoEm;
     private LocalDateTime atualizadoEm;
