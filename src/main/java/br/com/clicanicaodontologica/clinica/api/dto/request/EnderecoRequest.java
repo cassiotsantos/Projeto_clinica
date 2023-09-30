@@ -1,5 +1,6 @@
 package br.com.clicanicaodontologica.clinica.api.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,11 +10,14 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 public class EnderecoRequest {
+    @NotBlank
     private String logradouro;
+    @NotBlank
     private String bairro;
-    private LocalDateTime criadoEm;
-    private LocalDateTime atualizadoEm;
+    @NotBlank
     private String cidade;
+    @NotBlank
     private String estado;
+    @NotBlank
     private String cep;
 }

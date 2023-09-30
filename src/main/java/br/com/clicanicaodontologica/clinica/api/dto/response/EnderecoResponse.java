@@ -11,6 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class EnderecoResponse {
+    private UUID id;
     private String logradouro;
     private String bairro;
     private LocalDateTime criadoEm;

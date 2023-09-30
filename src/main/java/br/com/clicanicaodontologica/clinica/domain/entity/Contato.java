@@ -17,7 +17,6 @@ public class Contato {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(length = 100)
-    @Email
     private String email;
     @Column(length = 15)
     private String telefone;

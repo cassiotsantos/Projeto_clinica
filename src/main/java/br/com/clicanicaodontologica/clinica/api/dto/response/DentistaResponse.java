@@ -17,6 +17,7 @@ import java.util.UUID;
 @Setter
 @Getter
 public class DentistaResponse {
+    private UUID id;
     private String cro;
     private String nome;
     private LocalDate dataNascimento;

@@ -27,8 +27,6 @@ public class ConsultaController {
         this.consultaService = consultaService;
         this.objectMapper = objectMapper;
     }
-
-
     @PostMapping
     ResponseEntity<?> criarConsulta(@RequestBody @Valid List<ConsultaRequest> request) {
 

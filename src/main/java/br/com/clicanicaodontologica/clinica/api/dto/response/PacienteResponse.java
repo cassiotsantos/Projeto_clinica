@@ -17,6 +17,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class PacienteResponse {
+    private UUID id;
     private String nome;
     private LocalDate dataNascimento;
     private Endereco endereco;

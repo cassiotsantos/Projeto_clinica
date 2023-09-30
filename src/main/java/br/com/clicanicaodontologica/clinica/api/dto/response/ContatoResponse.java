@@ -12,6 +12,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class ContatoResponse {
+    private UUID id;
     private String email;
     private String telefone;
     private LocalDateTime criadoEm;
