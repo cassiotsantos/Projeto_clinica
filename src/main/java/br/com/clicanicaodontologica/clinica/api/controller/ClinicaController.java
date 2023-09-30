@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -116,7 +115,7 @@ private final ObjectMapper objectMapper;
         clinica.setContato(contato);
         clinica.setEndereco(endereco);
 
-        Clinica atualizarClinica = clinicaService.atualizarClinica(clinica);
+        Clinica atualizarClinica = clinicaService.atualizarClinica(id, clinica);
         return ResponseEntity.ok(atualizarClinica);
         }
 

@@ -7,6 +7,7 @@ import br.com.clicanicaodontologica.clinica.domain.entity.Endereco;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -20,15 +21,17 @@ import java.util.Set;
 public class ClinicaRequest {
     @NotBlank
     private String name;
+    @NotBlank
     @CNPJ
     private String cnpj;
-    @NotNull
+    @NotBlank
+    @Size(min = 5)
     @JsonAlias(value = "razao_social")
     private String razaoSocial;
-    @NotNull
+    @NotBlank
     private String descricao;
-    @NotNull
+    @NotBlank
     private EnderecoRequest endereco;
-    @NotNull
+    @NotBlank
     private ContatoRequest contato;
 }
