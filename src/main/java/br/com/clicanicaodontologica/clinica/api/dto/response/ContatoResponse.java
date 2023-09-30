@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -13,6 +14,6 @@ import java.util.UUID;
 public class ContatoResponse {
     private String email;
     private String telefone;
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
 }

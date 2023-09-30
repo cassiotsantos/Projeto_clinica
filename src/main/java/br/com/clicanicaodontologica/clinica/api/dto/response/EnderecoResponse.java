@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -12,8 +13,8 @@ import java.util.UUID;
 public class EnderecoResponse {
     private String logradouro;
     private String bairro;
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     private String cidade;
     private String estado;
     private String cep;

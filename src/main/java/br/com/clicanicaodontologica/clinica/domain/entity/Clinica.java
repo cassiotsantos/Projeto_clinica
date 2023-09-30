@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.UUID;
 @Getter
 @Setter
@@ -27,8 +28,8 @@ public class Clinica {
     private String cnpj;
     private String razaoSocial;
     @Column(updatable = false)
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     private String descricao;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_endereco",
@@ -45,11 +46,11 @@ public class Clinica {
 
     @PrePersist
     public void naCriacao() {
-        this.criadoEm = Instant.now();
+        this.criadoEm = LocalDateTime.now();
     }
     @PreUpdate
     public void naAtualizacao() {
-        this.atualizadoEm = Instant.now();
+        this.atualizadoEm = LocalDateTime.now();
     }
 
 }

@@ -80,8 +80,8 @@ private final ObjectMapper objectMapper;
     }
 
     @GetMapping
-    ResponseEntity<ClinicaWrapperResponse> buscarClinica(){
-        List<Clinica> clinicas = clinicaService.buscarClinica();
+    ResponseEntity<ClinicaWrapperResponse> buscarClinica(@RequestParam(required = false) String termo){
+        List<Clinica> clinicas = clinicaService.buscarClinica(termo);
         ClinicaWrapperResponse clinicaWrapperResponse = new ClinicaWrapperResponse();
         clinicaWrapperResponse.setClinicas(clinicas.stream().map( clinica -> {
             ClinicaListResponse clinicaListResponse = new ClinicaListResponse();
@@ -124,8 +124,6 @@ private final ObjectMapper objectMapper;
         clinicaService.deleteClinica(id);
         return ResponseEntity.ok().build();
         }
-
-
 
     private ClinicaResponse clinicaResponseByClinica(Clinica clinica) {
 

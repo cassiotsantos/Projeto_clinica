@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,10 +19,10 @@ import java.util.UUID;
 public class DentistaResponse {
     private String cro;
     private String nome;
-    private Instant dataNascimento;
+    private LocalDate dataNascimento;
     private EspecialidadeEnum especialidadeEnum;
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     private SexoEnum sexoEnum;
     private Contato contato;
     private Set<Consulta> consultas;

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.UUID;
 @Getter
 @Setter
@@ -21,11 +22,15 @@ public class Contato {
     @Column(length = 15)
     private String telefone;
     @Column(updatable = false)
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
 
     @PreUpdate
     public void naAtualizacao() {
-        this.atualizadoEm = Instant.now();
+        this.atualizadoEm = LocalDateTime.now();
+    }
+    @PrePersist
+    public void naCriacao() {
+        this.criadoEm = LocalDateTime.now();
     }
 }

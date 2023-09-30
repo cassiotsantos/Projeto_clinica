@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -39,8 +40,8 @@ public class Consulta {
     private Dentista dentista;
     private LocalDate dataConsulta;
     @Column(updatable = false)
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     private String descricao;
     private Boolean cancelada;
     @Column(length = 80)
@@ -48,10 +49,10 @@ public class Consulta {
 
     @PrePersist
     public void naCriacao() {
-        this.criadoEm = Instant.now();
+        this.criadoEm = LocalDateTime.now();
     }
     @PreUpdate
     public void naAtualizacao() {
-        this.atualizadoEm = Instant.now();
+        this.atualizadoEm = LocalDateTime.now();
     }
 }

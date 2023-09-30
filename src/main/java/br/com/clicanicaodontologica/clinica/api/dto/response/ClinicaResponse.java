@@ -11,6 +11,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -19,12 +20,10 @@ import java.util.UUID;
 public class ClinicaResponse {
     private UUID id;
     private String name;
-    @CNPJ
     private String cnpj;
-    @Size(min = 5, message = "O campo deve ter pelo menos 5 caracteres.")
     private String razaoSocial;
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     private String descricao;
     private EnderecoResponse endereco;
     private ContatoResponse contato;

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -21,8 +22,8 @@ public class Endereco {
     @Column(length = 100)
     private String bairro;
     @Column(updatable = false)
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     @Column(length = 100)
     private String cidade;
     @Column(length = 100)
@@ -30,5 +31,9 @@ public class Endereco {
     @Column(length = 10)
     private String cep;
 
-     public void naAtualizacao() {this.atualizadoEm = Instant.now();}
+     @PreUpdate
+     public void naAtualizacao() {this.atualizadoEm = LocalDateTime.now();}
+
+    @PrePersist
+    public void naCriacap(){this.criadoEm = LocalDateTime.now();}
 }

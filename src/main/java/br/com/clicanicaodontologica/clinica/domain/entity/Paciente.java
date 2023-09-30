@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -18,7 +20,7 @@ public class Paciente {
     @Column(name = "id")
     private UUID id;
     private String nome;
-    private Instant dataNascimento;
+    private LocalDate dataNascimento;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco" ,
             referencedColumnName = "id",
@@ -26,8 +28,8 @@ public class Paciente {
             @ForeignKey(name = "fk_endereco_paciente"))
     private Endereco endereco;
     @Column(updatable = false)
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     private SexoEnum sexoEnum;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contato" ,
@@ -38,10 +40,10 @@ public class Paciente {
 
     @PrePersist
     public void naCriacao() {
-        this.criadoEm = Instant.now();
+        this.criadoEm = LocalDateTime.now();
     }
     @PreUpdate
     public void naAtualizacao() {
-        this.atualizadoEm = Instant.now();
+        this.atualizadoEm = LocalDateTime.now();
     }
 }

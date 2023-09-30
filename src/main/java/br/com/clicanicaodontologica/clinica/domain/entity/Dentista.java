@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -19,12 +21,12 @@ public class Dentista {
     private UUID id;
     private String cro;
     private String nome;
-    private Instant dataNascimento;
+    private LocalDate dataNascimento;
     @Column(length = 80)
     private EspecialidadeEnum especialidadeEnum;
     @Column(updatable = false)
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
     private SexoEnum sexoEnum;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contato" ,
@@ -43,11 +45,11 @@ public class Dentista {
 
     @PrePersist
     public void naCriacao() {
-        this.criadoEm = Instant.now();
+        this.criadoEm = LocalDateTime.now();
     }
     @PreUpdate
     public void naAtualizacao() {
-        this.atualizadoEm = Instant.now();
+        this.atualizadoEm = LocalDateTime.now();
     }
 
 }
