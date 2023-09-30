@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface PacienteService {
 
     List<Paciente> criarPaciente(List<Paciente> paciente);
-    List<Paciente> buscarPaciente();
+    List<Paciente> buscarPaciente(String termo);
     Paciente buscarPacientePorId(UUID id);
     Paciente atualizarPaciente(Paciente paciente);
     void deletePaciente(UUID id);

@@ -25,8 +25,8 @@ public class DentistaServiceImpl implements DentistaService {
     }
 
     @Override
-    public List<Dentista> buscarDentista() {
-        return dentistaRepository.findAll();
+    public List<Dentista> buscarDentista(String termo) {
+        return dentistaRepository.findByNomeStartingWith(termo);
     }
 
     @Override

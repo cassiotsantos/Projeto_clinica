@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface DentistaService {
     List<Dentista> criarDentista(List<Dentista> dentista);
-    List<Dentista> buscarDentista();
+    List<Dentista> buscarDentista(String termo);
     Dentista buscarDentistaPorId(UUID id);
     Dentista atualizarDentista(UUID id, Dentista dentista);
     void deleteDentista(UUID id);

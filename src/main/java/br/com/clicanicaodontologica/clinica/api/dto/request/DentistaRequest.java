@@ -1,9 +1,6 @@
 package br.com.clicanicaodontologica.clinica.api.dto.request;
 
-import br.com.clicanicaodontologica.clinica.domain.entity.Consulta;
-import br.com.clicanicaodontologica.clinica.domain.entity.Contato;
-import br.com.clicanicaodontologica.clinica.domain.entity.EspecialidadeEnum;
-import br.com.clicanicaodontologica.clinica.domain.entity.SexoEnum;
+import br.com.clicanicaodontologica.clinica.domain.entity.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -30,5 +27,5 @@ public class DentistaRequest {
     @NotNull
     private Contato contato;
     @NotEmpty
-    private Set<Consulta> consultas;
+    private Set<Clinica> consultas;
 }
