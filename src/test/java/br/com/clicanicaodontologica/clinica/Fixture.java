@@ -7,6 +7,8 @@ import br.com.clicanicaodontologica.clinica.domain.entity.SexoEnum;
 import com.github.javafaker.Faker;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class Fixture {
@@ -15,7 +17,10 @@ public class Fixture {
 
     public static class PacienteFake {
 
-        public static PacienteRequest anyPaciente() {
+        public static List<PacienteRequest> anyPaciente() {
+
+            List<PacienteRequest> pacienteRequestList = new ArrayList<>();
+
             PacienteRequest request = new PacienteRequest();
             request.setNome(FAKER.rickAndMorty().character());
             request.setDataNascimento(LocalDate.now());
@@ -31,7 +36,10 @@ public class Fixture {
             enderecoRequest.setEstado(FAKER.address().state());
             enderecoRequest.setCep(FAKER.address().zipCode());
             request.setEndereco(enderecoRequest);
-            return request;
+
+            pacienteRequestList.add(request);
+
+            return pacienteRequestList;
         }
 
 

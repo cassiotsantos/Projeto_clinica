@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -47,7 +48,7 @@ class ClinicaApplicationTests {
 	@DisplayName("Dado um objeto válido, quando chamamos o endpoint criar Pacientes, retornar o Objeto Mockado")
 	void dadoUmObjetoValido_quandoChamamosEndpointCriarPaciente_entaoRetornarObjetoMockado() throws Exception {
 
-		PacienteRequest paciente = Fixture.PacienteFake.anyPaciente();
+		List<PacienteRequest> paciente = Fixture.PacienteFake.anyPaciente();
 
 		String pacienteAsJson = objectMapper.writeValueAsString(paciente);
 
