@@ -1,8 +1,8 @@
 # Projeto Clínica
 
 ## Informações
-Aluno: Cássio Teixeira dos Santos
-Disciplina: Back-End
+Aluno: Cássio Teixeira dos Santos<br>
+Disciplina: Back-End<br>
 Turma: 1
 
 ## Requisitos do Projeto:
